@@ -1,10 +1,7 @@
 package com.example.myapplication;
 
 public class Impact {
-    private double plane=5;
-    private double train=1;
-    private double ship=4;
-    private  double truck=3;
+
 
 
     private String vehicleType;
@@ -12,59 +9,63 @@ public class Impact {
     public Impact() {
     }
 
-    public   double GwpParSeconde(String vehicle, int distance) {
+    public static double ScoreCalculate(String vehicle, int distance) {
         double score=0;
+         double plane=5;
+         double train=1;
+         double ship=4;
+          double truck=3;
         if (distance>10000){
-            if (vehicle.equals("Airplane")) {
-                score=(plane+5)*100;
+            if (vehicle.equals("plane")) {
+                score=(plane+5)*10;
             }
-            else if (vehicle.equals("Car") || vehicle.equals("Truck")) {
-                score=(truck+5)*100;
+            else if (vehicle.equals("car") || vehicle.equals("truck")) {
+                score=(truck+5)*10;
             }
-            else if (vehicle.equals("Train")) {
-                score=(train+5)*100;
+            else if (vehicle.equals("train")) {
+                score=(train+5)*10;
             }
         }
         else if (distance<10000&& distance>5000){
-            if (vehicle.equals("airplane")) {
-                score=(plane+3)*100;
+            if (vehicle.equals("plane")) {
+                score=(plane+3)*10;
             }
-            else if (vehicle.equals("car") || vehicle.equals("Truck")) {
-                score=(truck+3)*100;
+            else if (vehicle.equals("car") || vehicle.equals("truck")) {
+                score=(truck+3)*10;
             }
             else if (vehicle.equals("train")) {
-                score=(train+3)*100;
+                score=(train+3)*10;
             }
             else if(vehicle.equals("ship")){
-                score=(ship+3)*100;
+                score=(ship+3)*10;
             }
         }
         else if (distance<5000&& distance>1000){
-            if (vehicle.equals("airplane")) {
-                score=(plane+2)*100;
+            if (vehicle.equals("plane")) {
+                score=(plane+2)*10;
             }
-            else if (vehicle.equals("car") || vehicle.equals("Truck")) {
-                score=(truck+2)*100;
+            else if (vehicle.equals("car") || vehicle.equals("truck")) {
+                score=(truck+2)*10;
             }
             else if (vehicle.equals("train")) {
-                score=(train+2)*100;
+                score=(train+2)*10;
             }
             else if(vehicle.equals("ship")){
-                score=(ship+2)*100;
+                score=(ship+2)*10;
             }
         }
         else if (distance<1000){
-            if (vehicle.equals("airplane")) {
-                score=(plane+1)*100;
+            if (vehicle.equals("plane")) {
+                score=(plane+1)*10;
             }
-            else if (vehicle.equals("car") || vehicle.equals("Truck")) {
-                score=(truck+1)*100;
+            else if (vehicle.equals("car") || vehicle.equals("truck")) {
+                score=(truck+1)*10;
             }
             else if (vehicle.equals("train")) {
-                score=(train+1)*100;
+                score=(train+1)*10;
             }
             else if(vehicle.equals("ship")){
-                score=(ship+1)*100;
+                score=(ship+1)*10;
             }
         }
         return score;

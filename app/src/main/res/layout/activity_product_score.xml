@@ -83,6 +83,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
         android:text="Calculate"
+        android:textColor="@color/purple_500"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/url" />
@@ -91,7 +92,6 @@
         android:id="@+id/productScore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

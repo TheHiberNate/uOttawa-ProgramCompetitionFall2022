@@ -1,9 +1,9 @@
 package com.example.myapplication;
 
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -45,18 +45,20 @@ public class ProductScore extends AppCompatActivity implements View.OnClickListe
                 String id = String.valueOf(name.getText());
                 productReference = FirebaseDatabase.getInstance().getReference("Products").child(id);
                 calculate();
-                score.setText(answer);
                 break;
         }
     }
 
-    private int calculate() {
-        productReference.addValueEventListener(new ValueEventListener() {
+    private void calculate() {
+        productReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Integer distance = (Integer) snapshot.child("distance").getValue();
-                String type = (String) snapshot.child("transportationMeans").getValue();
-                
+                String distance = snapshot.child("distance").getValue().toString();
+                String type = snapshot.child("transportationMeans").getValue().toString();
+                int answer = ScoreCalculate(type, Integer.valueOf(distance));
+                String n = String.valueOf(answer);
+                System.out.println(n);
+                score.setText("The score is "+" "+ n + " %");
             }
 
             @Override
@@ -64,9 +66,70 @@ public class ProductScore extends AppCompatActivity implements View.OnClickListe
 
             }
         });
-
-        return
     }
 
+    public Integer ScoreCalculate(String vehicle, int distance) {
+        int score=0;
+        int plane=5;
+        int train=1;
+        int ship=4;
+        int truck=3;
+
+        if (distance>=10000){
+            if (vehicle.equals("plane")) {
+                score=(plane+5)*10;
+                System.out.println("Rentrer" + score);
+            }
+            else if (vehicle.equals("car") || vehicle.equals("truck")) {
+                score=(truck+5)*10;
+            }
+            else if (vehicle.equals("train")) {
+                score=(train+5)*10;
+            }
+        }
+        else if (distance<10000&& distance>5000){
+            if (vehicle.equals("plane")) {
+                score=(plane+3)*10;
+            }
+            else if (vehicle.equals("car") || vehicle.equals("truck")) {
+                score=(truck+3)*10;
+            }
+            else if (vehicle.equals("train")) {
+                score=(train+3)*10;
+            }
+            else if(vehicle.equals("ship")){
+                score=(ship+3)*10;
+            }
+        }
+        else if (distance<5000&& distance>1000){
+            if (vehicle.equals("plane")) {
+                score=(plane+2)*10;
+            }
+            else if (vehicle.equals("car") || vehicle.equals("truck")) {
+                score=(truck+2)*10;
+            }
+            else if (vehicle.equals("train")) {
+                score=(train+2)*10;
+            }
+            else if(vehicle.equals("ship")){
+                score=(ship+2)*10;
+            }
+        }
+        else if (distance<1000){
+            if (vehicle.equals("plane")) {
+                score=(plane+1)*10;
+            }
+            else if (vehicle.equals("car") || vehicle.equals("truck")) {
+                score=(truck+1)*10;
+            }
+            else if (vehicle.equals("train")) {
+                score=(train+1)*10;
+            }
+            else if(vehicle.equals("ship")){
+                score=(ship+1)*10;
+            }
+        }
+        return score;
+    }
 
 }
