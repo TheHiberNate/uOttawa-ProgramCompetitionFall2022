@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (view.getId()) {
             case R.id.btnImpactScore:
                 startActivity(new Intent(getApplicationContext(), ProductScore.class));
+                break;
         }
     }
 }
