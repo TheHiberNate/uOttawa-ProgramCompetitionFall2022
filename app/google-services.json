@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1017049728914",
+    "project_id": "deliveryenvironmentimpact",
+    "storage_bucket": "deliveryenvironmentimpact.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1017049728914:android:c86eb428c76ad37e44234b",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1017049728914-ims9rv0882vito0redmnd5sipdk7672u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDL1MiFdyiv2LPXP7HsG2F1Ug7s2ESoqic"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1017049728914-ims9rv0882vito0redmnd5sipdk7672u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
