@@ -1,5 +1,5 @@
 # uOttawa-ProgramCompetitionFall2022
-@author<br/>
+Authors
 - Onel Valery
 - Nathan Gawargy
 - Vodi Benjamin
